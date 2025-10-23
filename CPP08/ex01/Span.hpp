@@ -3,22 +3,27 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
+#include <climits>
 
 class Span {
 private:
-	unsigned int _N;
-	size_t lenght;
+	unsigned int _max_size;
+	std::vector<int> numbers;
 
 public:
 	Span();
-	Span(int n);
+	Span(unsigned int n);
 	Span(const Span& other);
 	Span& operator=(const Span& other);
 	~Span();
 
-	void addNumber(unsigned int N);
+	void addNumber(int value);
 	int shortestSpan();
 	int longestSpan();
+	void afficher();
 };
+
 
 #endif
