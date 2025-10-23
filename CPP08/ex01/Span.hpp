@@ -23,6 +23,14 @@ public:
 	int shortestSpan();
 	int longestSpan();
 	void afficher();
+
+	template<typename Iterator>
+	void addMoreNumbers(Iterator begin, Iterator end) {
+	while (begin != end) {
+		addNumber(*begin);
+		++begin;
+	}
+}
 };
 
 

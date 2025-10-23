@@ -30,7 +30,7 @@ void Span::addNumber(int value) {
 }
 
 void Span::afficher() {
-	std::cout << "Affichier la pile: " << std::endl;
+	std::cout << "Afficher la pile: " << std::endl;
 	for (size_t i = 0; i < numbers.size(); i++) {
 		std::cout << numbers[i] << std::endl;
 	}
@@ -41,10 +41,10 @@ int Span::shortestSpan() {
 		throw std::exception();
 	std::sort(numbers.begin(), numbers.end());
 
-	std::cout << "Triage de la pile:" << std::endl;
-	for (size_t i = 0; i < numbers.size(); i++) {
-		std::cout << numbers[i] << std::endl;
-	}
+	// std::cout << "Triage de la pile:" << std::endl;
+	// for (size_t i = 0; i < numbers.size(); i++) {
+	// 	std::cout << numbers[i] << std::endl;
+	// }
 
 	std::vector<int>::iterator current = numbers.begin();
 	std::vector<int>::iterator next = current;
