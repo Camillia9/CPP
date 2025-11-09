@@ -19,14 +19,11 @@ void RPN::tokenisation(std::string num) {
 	std::string tmp = "";
 	for (size_t i = 0; i < num.length(); i++) {
 		if (num[i] == ' ') {
-			if (!tmp.empty()) {
-				token.push_back(tmp);
-				tmp = "";
-			}
-		} else {
-			tmp += num[i];
-		}
-		if (!tmp.empty())
 			token.push_back(tmp);
+			tmp = "";
+		} else
+			tmp = num[i];
 	}
+	if (!tmp.empty())
+		token.push_back(tmp);
 }

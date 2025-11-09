@@ -9,7 +9,7 @@
 class RPN {
 private:
 	std::stack<int>value;
-	std::vector<int>token;
+	std::vector<std::string>token;
 
 public:
 	RPN();
@@ -18,7 +18,8 @@ public:
 	~RPN();
 
 	void tokenisation(std::string num);
-	bool isDigitOrMath(std::string str);
+	bool isValidToken(std::string str);
+	bool validateAllTokens();
 };
 
 #endif
