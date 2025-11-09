@@ -1,7 +1,7 @@
-NAME = Bitcoin
+NAME = RPN
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP
-SRCS = main.cpp BitcoinExchange.cpp
+SRCS = main.cpp RPN.cpp
 OBJDIR := obj
 OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
 
