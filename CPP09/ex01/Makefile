@@ -1,7 +1,7 @@
 NAME = RPN
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP
-SRCS = main.cpp RPN.cpp
+SRCS = main.cpp RPN.cpp utils.cpp
 OBJDIR := obj
 OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
 

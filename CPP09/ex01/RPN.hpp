@@ -2,6 +2,7 @@
 #define RPN_HPP
 
 #include <iostream>
+#include <cstdlib>
 #include <string>
 #include <stack>
 #include <vector>
@@ -19,7 +20,9 @@ public:
 
 	void tokenisation(std::string num);
 	bool isValidToken(std::string str);
+	bool isNumber(std::string str);
 	bool validateAllTokens();
+	void evaluateRPN();
 };
 
 #endif
