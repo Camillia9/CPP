@@ -5,14 +5,14 @@ bool BitcoinExchange::DateIsValid(const std::string& date) {
 		return false;
 
 	int year = std::atoi(date.substr(0, 4).c_str());
-	int mounth = std::atoi(date.substr(5, 7).c_str());
-	int days = std::atoi(date.substr(8, 10).c_str());
+	int mounth = std::atoi(date.substr(5, 2).c_str());
+	int days = std::atoi(date.substr(8, 2).c_str());
 
 	if (year < 1000 || year > 9999)
 		return false;
-	if (mounth < 01 || mounth > 12)
+	if (mounth < 1 || mounth > 12)
 		return false;
-	if (days < 01 || days > 31)
+	if (days < 1 || days > 31)
 		return false;
 	return true;
 }
