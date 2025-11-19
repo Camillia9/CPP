@@ -6,7 +6,7 @@
 #include <cstdlib>
 #include <list>
 #include <deque>
-#include <chrono>
+#include <ctime>
 
 class PmergeMe {
 private:
@@ -27,6 +27,13 @@ public:
 	void AlgoTime();
 	std::list<int>sortList(std::list<int>& liste);
 	std::deque<int>sortDek(std::deque<int>& dek);
+
+	//std::list<std::pair<int, int> >makePairs(std::list<int>& liste, int& singleElement);
+	std::list<std::pair<int, int> > makePairs(std::list<int>& liste, int& singleElement, bool& hasSingle);
+	std::list<int> extractLargeElements(std::list<std::pair<int, int> >& pairs);
+	std::list<int> sortListHelper(std::list<int>& large);
+	void insertSmallElements(std::list<int>& principal, std::list<std::pair<int, int> >& pairs, int singleElement, bool& hasSingle);
+	std::list<int>::iterator findPosition(std::list<int>& sorted, int value);
 };
 
 #endif

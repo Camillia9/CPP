@@ -7,5 +7,7 @@ int main (int ac, char **av) {
 	}
 	PmergeMe merge(ac, av);
 	merge.displayBefore(merge.getlist());
-	merge.displayAfter(merge.getlist());
+	merge.AlgoTime();
+	std::list<int>sortedList = merge.sortList(merge.getlist());
+	merge.displayAfter(sortedList);
 }

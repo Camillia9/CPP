@@ -54,32 +54,37 @@ void PmergeMe::displayAfter(std::list<int>& container) {
 }
 
 void PmergeMe::AlgoTime() {
-	std::chrono::high_resolution_clock::time_point startL = std::chrono::high_resolution_clock::now();
+	clock_t startL = clock();
 	
-	// ALGO LIST
+	sortList(liste);
 
-	std::chrono::high_resolution_clock::time_point endL = std::chrono::high_resolution_clock::now();
+	clock_t endL = clock();
+	double durationL = static_cast<double>(endL - startL) / CLOCKS_PER_SEC * 1000000;
+	std::cout << "Time to process a range of : " << liste.size() << " elements with std::list: " << durationL << " us" << std::endl;
 
-	std::chrono::microseconds durationL = std::chrono::duration_cast<std::chrono::microseconds>(endL - startL);
-
-	std::cout << "Time to process a range of : " << liste.size() << "elements with std::list: " << durationL.count() << " us" << std::endl;
-
-
-	std::chrono::high_resolution_clock::time_point startD = std::chrono::high_resolution_clock::now();
+	clock_t startD = clock();
 	
 	// ALGO DEQUE
+	//sortDek(dek);
 
-	std::chrono::high_resolution_clock::time_point endD = std::chrono::high_resolution_clock::now();
-
-	std::chrono::microseconds durationD = std::chrono::duration_cast<std::chrono::microseconds>(endD - startD);
-
-	std::cout << "Time to process a range of : " << dek.size() << "elements with std::list: " << durationD.count() << " us" << std::endl;
+	clock_t endD = clock();
+	double durationD = static_cast<double>(endD - startD) / CLOCKS_PER_SEC * 1000000;
+	std::cout << "Time to process a range of : " << dek.size() << " elements with std::deque: " << durationD << " us" << std::endl;
 }
 
 std::list<int> PmergeMe::sortList(std::list<int>& liste) {
-	std::list<int>sorted;
-
+	// Créer une copie pour ne pas modifier l'original
+	std::list<int> temp(liste);
 	
-	return sorted;
+	if (temp.size() <= 1) {
+		return temp;
+	} 
+	int singleElement = 0;
+	bool hasSingle = false;
+	std::list<std::pair<int, int> > p = makePairs(temp, singleElement, hasSingle);
+	std::list<int>largeElements = extractLargeElements(p);
+	std::list<int>sortedLarge = sortListHelper(largeElements);
+	insertSmallElements(sortedLarge, p, singleElement, hasSingle);
+	
+	return sortedLarge;
 }
-
