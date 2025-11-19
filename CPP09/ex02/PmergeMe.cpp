@@ -65,7 +65,7 @@ void PmergeMe::AlgoTime() {
 	clock_t startD = clock();
 	
 	// ALGO DEQUE
-	//sortDek(dek);
+	sortDek(dek);
 
 	clock_t endD = clock();
 	double durationD = static_cast<double>(endD - startD) / CLOCKS_PER_SEC * 1000000;
@@ -84,6 +84,23 @@ std::list<int> PmergeMe::sortList(std::list<int>& liste) {
 	std::list<std::pair<int, int> > p = makePairs(temp, singleElement, hasSingle);
 	std::list<int>largeElements = extractLargeElements(p);
 	std::list<int>sortedLarge = sortListHelper(largeElements);
+	insertSmallElements(sortedLarge, p, singleElement, hasSingle);
+	
+	return sortedLarge;
+}
+
+std::deque<int> PmergeMe::sortDek(std::deque<int>& liste) {
+	// Créer une copie pour ne pas modifier l'original
+	std::deque<int> temp(liste);
+	
+	if (temp.size() <= 1) {
+		return temp;
+	} 
+	int singleElement = 0;
+	bool hasSingle = false;
+	std::deque<std::pair<int, int> > p = makePairs(temp, singleElement, hasSingle);
+	std::deque<int>largeElements = extractLargeElements(p);
+	std::deque<int>sortedLarge = sortListHelper(largeElements);
 	insertSmallElements(sortedLarge, p, singleElement, hasSingle);
 	
 	return sortedLarge;

@@ -4,10 +4,6 @@ std::list<int>& PmergeMe::getlist() {
 	return liste;
 }
 
-std::deque<int>& PmergeMe::getdeque() {
-	return dek;
-}
-
 std::list<std::pair<int, int> > PmergeMe::makePairs(std::list<int>& liste, int& singleElement, bool& hasSingle) {
 	std::list<std::pair<int, int> >paire;
 	if (liste.size() % 2 == 1) { // 0 paire, 1 impaire

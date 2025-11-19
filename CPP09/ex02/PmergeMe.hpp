@@ -34,6 +34,12 @@ public:
 	std::list<int> sortListHelper(std::list<int>& large);
 	void insertSmallElements(std::list<int>& principal, std::list<std::pair<int, int> >& pairs, int singleElement, bool& hasSingle);
 	std::list<int>::iterator findPosition(std::list<int>& sorted, int value);
+
+	std::deque<std::pair<int, int> > makePairs(std::deque<int>& liste, int& singleElement, bool& hasSingle);
+	std::deque<int> extractLargeElements(std::deque<std::pair<int, int> >& pairs);
+	std::deque<int> sortListHelper(std::deque<int>& large);
+	void insertSmallElements(std::deque<int>& principal, std::deque<std::pair<int, int> >& pairs, int singleElement, bool& hasSingle);
+	std::deque<int>::iterator findPosition(std::deque<int>& sorted, int value);
 };
 
 #endif

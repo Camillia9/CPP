@@ -1,7 +1,7 @@
 NAME = merge
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP
-SRCS = main.cpp PmergeMe.cpp utils_list.cpp
+SRCS = main.cpp PmergeMe.cpp utils_list.cpp utils_deque.cpp
 OBJDIR := obj
 OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
 
