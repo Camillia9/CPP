@@ -2,17 +2,19 @@
 
 PmergeMe::PmergeMe() {}
 
-PmergeMe::PmergeMe(int ac, char **av) {
+PmergeMe::PmergeMe(int ac, char **av) : isValid(true){
 	for (int i = 1; i < ac; i++) {
 		for (int j = 0; av[i][j]; j++) {
 			if (!isdigit(av[i][j])) {
 				std::cerr << "Error: Invalid Argument" << std::endl;
+				isValid = false;
 				return;
 			}
 		}
 		int nb = std::atoi(av[i]);
 		if (nb < 0) {
 			std::cerr << "Error: Not a positif number" << std::endl;
+			isValid = false;
 			return;
 		}
 		liste.push_back(nb);
@@ -32,6 +34,10 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
 PmergeMe::~PmergeMe() {}
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+bool PmergeMe::getIsValid()const {
+	return isValid;
+}
 
 void PmergeMe::displayBefore(std::list<int>& container) {
 	std::list<int>::iterator it = container.begin();
@@ -63,8 +69,7 @@ void PmergeMe::AlgoTime() {
 	std::cout << "Time to process a range of : " << liste.size() << " elements with std::list: " << durationL << " us" << std::endl;
 
 	clock_t startD = clock();
-	
-	// ALGO DEQUE
+
 	sortDek(dek);
 
 	clock_t endD = clock();
@@ -73,7 +78,6 @@ void PmergeMe::AlgoTime() {
 }
 
 std::list<int> PmergeMe::sortList(std::list<int>& liste) {
-	// Créer une copie pour ne pas modifier l'original
 	std::list<int> temp(liste);
 	
 	if (temp.size() <= 1) {
@@ -90,7 +94,6 @@ std::list<int> PmergeMe::sortList(std::list<int>& liste) {
 }
 
 std::deque<int> PmergeMe::sortDek(std::deque<int>& liste) {
-	// Créer une copie pour ne pas modifier l'original
 	std::deque<int> temp(liste);
 	
 	if (temp.size() <= 1) {

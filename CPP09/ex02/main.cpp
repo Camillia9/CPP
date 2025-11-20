@@ -6,8 +6,11 @@ int main (int ac, char **av) {
 		return 0;
 	}
 	PmergeMe merge(ac, av);
+	if (!merge.getIsValid())
+		return 1;
 	merge.displayBefore(merge.getlist());
 	merge.AlgoTime();
 	std::list<int>sortedList = merge.sortList(merge.getlist());
 	merge.displayAfter(sortedList);
+	return 0;
 }
