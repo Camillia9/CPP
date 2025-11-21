@@ -60,8 +60,6 @@ std::list<int> PmergeMe::sortListHelper(std::list<int>& large) {
 	std::list<int> largeElements = extractLargeElements(paires);
 	std::list<int> sortedLarge = sortListHelper(largeElements);
 	insertSmallElements(sortedLarge, paires, newSingleElement, newHasSingle);
-	if (newHasSingle)
-		sortedLarge.push_back(newSingleElement);
 	return sortedLarge;
 }
 
